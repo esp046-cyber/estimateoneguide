@@ -1,0 +1,2054 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estimate One - Complete How-To Guide</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: #e2e8f0;
+            line-height: 1.6;
+            padding: 1%;
+            margin: 1%;
+        }
+        
+        .container {
+            max-width: 100%;
+            margin: 0 auto;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+            padding: 15px 1%;
+            border-radius: 8px;
+            margin-bottom: 1%;
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+        }
+        
+        h1 {
+            font-size: 0.95rem;
+            color: #ffffff;
+            font-weight: 700;
+            text-align: center;
+            letter-spacing: 0.3px;
+        }
+        
+        .subtitle {
+            text-align: center;
+            color: #cbd5e1;
+            font-size: 0.75rem;
+            margin-top: 6px;
+        }
+        
+        .nav-tabs {
+            display: flex;
+            overflow-x: auto;
+            gap: 6px;
+            margin: 1%;
+            padding: 4px 1%;
+            background: rgba(15, 23, 42, 0.5);
+            border-radius: 6px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .tab {
+            background: #1e293b;
+            color: #94a3b8;
+            padding: 8px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            white-space: nowrap;
+            font-size: 0.75rem;
+            border: 1px solid transparent;
+            transition: all 0.3s;
+        }
+        
+        .tab.active {
+            background: #3b82f6;
+            color: #ffffff;
+            border-color: #60a5fa;
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        .section {
+            background: rgba(30, 41, 59, 0.8);
+            padding: 10px 1%;
+            margin: 1%;
+            border-radius: 6px;
+            border-left: 3px solid #3b82f6;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+        }
+        
+        .tool-card {
+            background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
+            padding: 10px 1%;
+            margin: 8px 1%;
+            border-radius: 6px;
+            border: 1px solid #3b82f6;
+        }
+        
+        .feature-list {
+            margin: 8px 1%;
+        }
+        
+        .feature-list li {
+            margin: 6px 1%;
+            padding-left: 1%;
+            color: #cbd5e1;
+            font-size: 0.82rem;
+        }
+        
+        .highlight {
+            background: #3b82f6;
+            color: #ffffff;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-weight: 600;
+            font-size: 0.8rem;
+        }
+        
+        .accordion {
+            margin: 1%;
+        }
+        
+        .accordion-item {
+            background: rgba(30, 41, 59, 0.8);
+            margin-bottom: 10px;
+            border-radius: 8px;
+            border: 1px solid #334155;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+        }
+        
+        .accordion-header {
+            background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
+            padding: 12px 1%;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid #3b82f6;
+        }
+        
+        .accordion-header:hover {
+            background: linear-gradient(135deg, #1e40af 0%, #2563eb 100%);
+        }
+        
+        .accordion-title {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #ffffff;
+        }
+        
+        .accordion-icon {
+            font-size: 0.9rem;
+            transition: transform 0.3s;
+            color: #60a5fa;
+        }
+        
+        .accordion-item.active .accordion-icon {
+            transform: rotate(180deg);
+        }
+        
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            padding: 0 1%;
+        }
+        
+        .accordion-item.active .accordion-content {
+            max-height: 15000px;
+            padding: 15px 1%;
+        }
+        
+        h2 {
+            font-size: 0.85rem;
+            color: #60a5fa;
+            margin: 15px 1% 10px 1%;
+            padding-bottom: 6px;
+            border-bottom: 2px solid #3b82f6;
+            font-weight: 600;
+        }
+        
+        h3 {
+            font-size: 0.78rem;
+            color: #93c5fd;
+            margin: 12px 1% 8px 1%;
+            font-weight: 600;
+        }
+        
+        .step {
+            background: rgba(15, 23, 42, 0.6);
+            padding: 10px 1%;
+            margin: 8px 1%;
+            border-radius: 6px;
+            border-left: 3px solid #10b981;
+        }
+        
+        .step-number {
+            display: inline-block;
+            background: #10b981;
+            color: #ffffff;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 24px;
+            font-weight: 700;
+            font-size: 0.75rem;
+            margin-right: 8px;
+        }
+        
+        .step-title {
+            color: #93c5fd;
+            font-weight: 600;
+            font-size: 0.8rem;
+            margin-bottom: 6px;
+        }
+        
+        .step-detail {
+            color: #cbd5e1;
+            font-size: 0.78rem;
+            margin-left: 32px;
+            line-height: 1.7;
+        }
+        
+        .click-path {
+            background: rgba(59, 130, 246, 0.2);
+            color: #60a5fa;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: monospace;
+            font-size: 0.75rem;
+            border: 1px solid #3b82f6;
+        }
+        
+        .tip {
+            background: rgba(34, 197, 94, 0.2);
+            border-left: 3px solid #22c55e;
+            padding: 10px 1%;
+            margin: 10px 1%;
+            border-radius: 4px;
+        }
+        
+        .tip-title {
+            color: #22c55e;
+            font-weight: 600;
+            font-size: 0.78rem;
+            margin-bottom: 4px;
+        }
+        
+        .tip-content {
+            color: #cbd5e1;
+            font-size: 0.78rem;
+        }
+        
+        .warning {
+            background: rgba(239, 68, 68, 0.2);
+            border-left: 3px solid #ef4444;
+            padding: 10px 1%;
+            margin: 10px 1%;
+            border-radius: 4px;
+        }
+        
+        .warning-title {
+            color: #ef4444;
+            font-weight: 600;
+            font-size: 0.78rem;
+            margin-bottom: 4px;
+        }
+        
+        .example {
+            background: rgba(168, 85, 247, 0.2);
+            border-left: 3px solid #a855f7;
+            padding: 10px 1%;
+            margin: 10px 1%;
+            border-radius: 4px;
+        }
+        
+        .example-title {
+            color: #c084fc;
+            font-weight: 600;
+            font-size: 0.78rem;
+            margin-bottom: 4px;
+        }
+        
+        .shortcut-box {
+            background: rgba(59, 130, 246, 0.3);
+            padding: 8px 1%;
+            margin: 8px 1%;
+            border-radius: 6px;
+            border: 1px solid #3b82f6;
+        }
+        
+        .shortcut-key {
+            background: #1e293b;
+            color: #60a5fa;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-family: monospace;
+            font-weight: 700;
+            font-size: 0.75rem;
+            border: 1px solid #475569;
+            display: inline-block;
+            margin: 2px;
+        }
+        
+        .workflow-stage {
+            background: linear-gradient(90deg, rgba(59, 130, 246, 0.1) 0%, rgba(59, 130, 246, 0.05) 100%);
+            padding: 10px 1%;
+            margin: 8px 1%;
+            border-radius: 6px;
+            border-left: 4px solid #3b82f6;
+        }
+        
+        ul {
+            margin: 8px 1%;
+            padding-left: 20px;
+        }
+        
+        li {
+            color: #cbd5e1;
+            font-size: 0.78rem;
+            margin: 4px 0;
+        }
+        
+        strong {
+            color: #60a5fa;
+            font-weight: 600;
+        }
+        
+        .badge {
+            display: inline-block;
+            background: #10b981;
+            color: #ffffff;
+            padding: 2px 8px;
+            border-radius: 10px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            margin: 2px;
+        }
+        
+        .badge-time {
+            background: #f59e0b;
+        }
+        
+        .badge-difficulty {
+            background: #8b5cf6;
+        }
+        
+        @media (max-width: 480px) {
+            h1 { font-size: 0.88rem; }
+            .accordion-title { font-size: 0.8rem; }
+            .step-detail, .tip-content { font-size: 0.75rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Estimate One - Complete Platform & Tools Proficiency Guide 2026</h1>
+            <div class="subtitle">Platform Overview + Complete Step-by-Step How-To Guides</div>
+        </header>
+        
+        <div class="nav-tabs">
+            <div class="tab active" onclick="showMainTab('overview')">Overview</div>
+            <div class="tab" onclick="showMainTab('core')">Core Tools</div>
+            <div class="tab" onclick="showMainTab('advanced')">Advanced</div>
+            <div class="tab" onclick="showMainTab('integration')">Integration</div>
+            <div class="tab" onclick="showMainTab('guides')">How-To Guides</div>
+            <div class="tab" onclick="showMainTab('tips')">Best Practices</div>
+        </div>
+        
+        <div id="overview" class="tab-content">
+            <div class="section">
+                <h2>Estimate One Platform Overview</h2>
+                <p><strong>Estimate One</strong> is Australia's leading construction tendering and estimating platform, connecting subcontractors with builders through digital tender management.</p>
+                
+                <div class="tool-card">
+                    <h3>Platform Capabilities 2026</h3>
+                    <ul class="feature-list">
+                        <li><span class="highlight">AI-Powered Takeoff</span> - Automated quantity extraction from plans</li>
+                        <li><span class="highlight">Cloud Collaboration</span> - Real-time team estimating</li>
+                        <li><span class="highlight">Mobile Access</span> - iOS/Android apps with full functionality</li>
+                        <li><span class="highlight">Document Intelligence</span> - Smart spec parsing and analysis</li>
+                    </ul>
+                </div>
+                
+                <div class="tip">
+                    <strong>💡 2026 Update:</strong> Enhanced machine learning for pattern recognition in blueprints, reducing manual takeoff time by 60%.
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2>Key User Roles</h2>
+                <p><span class="badge">Estimators</span> <span class="badge">Project Managers</span> <span class="badge">Quantity Surveyors</span> <span class="badge">Subcontractors</span></p>
+            </div>
+        </div>
+        
+        <div id="core" class="tab-content">
+            <div class="section">
+                <h2>Core Platform Tools</h2>
+                
+                <div class="tool-card">
+                    <h3>1. Tender Search & Discovery</h3>
+                    <p><strong>Purpose:</strong> Find relevant construction projects and tenders</p>
+                    <ul class="feature-list">
+                        <li>Advanced filtering by trade, location, value, stage</li>
+                        <li>Saved searches with email alerts</li>
+                        <li>AI recommendations based on company profile</li>
+                        <li>Geographic radius search with mapping</li>
+                    </ul>
+                </div>
+                
+                <div class="tool-card">
+                    <h3>2. Digital Takeoff Tool</h3>
+                    <p><strong>Purpose:</strong> Measure and quantify materials from digital plans</p>
+                    <ul class="feature-list">
+                        <li>Linear, area, count, and volume measurements</li>
+                        <li>Layer management for different trades</li>
+                        <li>PDF plan overlay and scaling</li>
+                        <li>Export to Excel or estimation software</li>
+                        <li>Collaborative annotations and markups</li>
+                    </ul>
+                    <div class="tip">
+                        <strong>Pro Tip:</strong> Use keyboard shortcuts (L=Linear, A=Area, C=Count) for 40% faster takeoffs
+                    </div>
+                </div>
+                
+                <div class="tool-card">
+                    <h3>3. Estimate Builder</h3>
+                    <p><strong>Purpose:</strong> Create detailed cost estimates</p>
+                    <ul class="feature-list">
+                        <li>Import quantities from takeoff</li>
+                        <li>Rate libraries and historical pricing</li>
+                        <li>Labor, material, equipment breakdown</li>
+                        <li>Margin and markup calculators</li>
+                        <li>PDF estimate generation</li>
+                    </ul>
+                </div>
+                
+                <div class="tool-card">
+                    <h3>4. Document Manager</h3>
+                    <p><strong>Purpose:</strong> Centralize all tender documentation</p>
+                    <ul class="feature-list">
+                        <li>Automatic document categorization</li>
+                        <li>Version control and tracking</li>
+                        <li>Drawing comparison tools</li>
+                        <li>Addendum notifications</li>
+                        <li>Download packages in bulk</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div id="advanced" class="tab-content">
+            <div class="section">
+                <h2>Advanced Features (2026)</h2>
+                
+                <div class="tool-card">
+                    <h3>AI Specification Analyzer</h3>
+                    <p>Natural language processing extracts key requirements from specifications</p>
+                    <ul class="feature-list">
+                        <li>Auto-highlights critical dates and deliverables</li>
+                        <li>Identifies scope gaps and conflicts</li>
+                        <li>Generates compliance checklists</li>
+                        <li>Risk flagging for complex clauses</li>
+                    </ul>
+                </div>
+                
+                <div class="tool-card">
+                    <h3>Predictive Cost Intelligence</h3>
+                    <p>Machine learning analyzes historical data for accurate forecasting</p>
+                    <ul class="feature-list">
+                        <li>Market price trend analysis</li>
+                        <li>Win probability scoring</li>
+                        <li>Competitor bidding pattern insights</li>
+                        <li>Material cost escalation predictions</li>
+                    </ul>
+                    <div class="warning">
+                        <strong>⚠️ Note:</strong> Predictions based on historical data - always validate with current market conditions
+                    </div>
+                </div>
+                
+                <div class="tool-card">
+                    <h3>3D BIM Integration</h3>
+                    <p>Direct integration with Revit, ArchiCAD, and IFC models</p>
+                    <ul class="feature-list">
+                        <li>Import 3D models for visual takeoff</li>
+                        <li>Clash detection reporting</li>
+                        <li>Automated quantity extraction from BIM</li>
+                        <li>4D scheduling visualization</li>
+                    </ul>
+                </div>
+                
+                <div class="tool-card">
+                    <h3>Subcontractor Network</h3>
+                    <p>Build and manage your supply chain relationships</p>
+                    <ul class="feature-list">
+                        <li>Request quotes from preferred suppliers</li>
+                        <li>Performance tracking and ratings</li>
+                        <li>Automated RFQ distribution</li>
+                        <li>Quote comparison matrix</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div id="integration" class="tab-content">
+            <div class="section">
+                <h2>Platform Integrations</h2>
+                
+                <div class="tool-card">
+                    <h3>Accounting Software</h3>
+                    <ul class="feature-list">
+                        <li><strong>Xero:</strong> Sync estimates to invoices and quotes</li>
+                        <li><strong>MYOB:</strong> Direct job costing integration</li>
+                        <li><strong>QuickBooks:</strong> Two-way estimate/project sync</li>
+                    </ul>
+                </div>
+                
+                <div class="tool-card">
+                    <h3>Project Management</h3>
+                    <ul class="feature-list">
+                        <li><strong>Procore:</strong> Tender data to project setup</li>
+                        <li><strong>Aconex:</strong> Document workflow automation</li>
+                        <li><strong>Viewpoint:</strong> Cost code mapping</li>
+                    </ul>
+                </div>
+                
+                <div class="tool-card">
+                    <h3>Estimation Software</h3>
+                    <ul class="feature-list">
+                        <li><strong>CostX:</strong> Bidirectional takeoff exchange</li>
+                        <li><strong>Buildsoft:</strong> Rate library sync</li>
+                        <li><strong>Cubit:</strong> Cloud estimate sharing</li>
+                    </ul>
+                </div>
+                
+                <div class="tip">
+                    <strong>Integration Best Practice:</strong> Set up webhook automations to eliminate double data entry and reduce errors by 85%
+                </div>
+            </div>
+        </div>
+        
+        <div id="tips" class="tab-content">
+            <div class="section">
+                <h2>Proficiency Best Practices</h2>
+                
+                <div class="tool-card">
+                    <h3>Efficiency Workflows</h3>
+                    <ul class="feature-list">
+                        <li><strong>Morning Routine:</strong> Check tender alerts, review addendums, update watchlist (15 min)</li>
+                        <li><strong>Batch Processing:</strong> Complete takeoffs for similar trades together to maintain focus</li>
+                        <li><strong>Template Creation:</strong> Build reusable estimate templates for recurring project types</li>
+                        <li><strong>Keyboard Mastery:</strong> Learn 20 core shortcuts to save 2+ hours weekly</li>
+                    </ul>
+                </div>
+                
+                <div class="tool-card">
+                    <h3>Quality Control Checklist</h3>
+                    <ul class="feature-list">
+                        <li>✓ Verify plan scale calibration before starting takeoff</li>
+                        <li>✓ Cross-check quantities against specification requirements</li>
+                        <li>✓ Review all addendums and RFIs before finalizing</li>
+                        <li>✓ Peer review estimates over $500K value</li>
+                        <li>✓ Validate pricing against recent market rates</li>
+                    </ul>
+                </div>
+                
+                <div class="tool-card">
+                    <h3>Collaboration Tips</h3>
+                    <ul class="feature-list">
+                        <li>Use <span class="highlight">@mentions</span> in notes to alert team members</li>
+                        <li>Set color-coded layers for different estimators</li>
+                        <li>Schedule daily 15-min syncs for large tenders</li>
+                        <li>Share screen during complex takeoffs for quality assurance</li>
+                    </ul>
+                </div>
+                
+                <div class="warning">
+                    <strong>Common Pitfalls to Avoid:</strong>
+                    <ul class="feature-list">
+                        <li>Not reading tender submission requirements thoroughly</li>
+                        <li>Forgetting to check for updated drawings/addendums</li>
+                        <li>Missing timezone differences on close dates</li>
+                        <li>Over-relying on AI without manual verification</li>
+                    </ul>
+                </div>
+                
+                <div class="tip">
+                    <strong>💎 Pro Level:</strong> Achieve 95%+ accuracy by creating custom checklists for each trade and using the platform's audit trail features for all changes
+                </div>
+            </div>
+        </div>
+        
+        <div id="guides" class="tab-content active">
+        <div class="accordion">
+            <!-- TOOL 1: TENDER SEARCH & DISCOVERY -->
+            <div class="accordion-item active">
+                <div class="accordion-header" onclick="toggleAccordion(this)">
+                    <div class="accordion-title">🔍 1. Tender Search & Discovery - Find Relevant Projects</div>
+                    <div class="accordion-icon">▼</div>
+                </div>
+                <div class="accordion-content">
+                    <div style="text-align: center; margin: 10px 1%;">
+                        <span class="badge badge-time">⏱ 5-10 min setup</span>
+                        <span class="badge badge-difficulty">📊 Beginner</span>
+                    </div>
+                    
+                    <h2>Basic Tender Search</h2>
+                    
+                    <div class="step">
+                        <div class="step-title"><span class="step-number">1</span>Access the Tender Search</div>
+                        <div class="step-detail">
+                            Navigate to: <span class="click-path">Dashboard → Tenders → Search Tenders</span><br>
+                            Or click the search icon in the top navigation bar
+                        </div>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-title"><span class="step-number">2</span>Apply Basic Filters</div>
+                        <div class="step-detail">
+                            <strong>Location Filter:</strong><br>
+                            • Click <span class="click-path">Location</span> dropdown<br>
+                            • Select State (e.g., NSW, VIC, QLD)<br>
+                            • Narrow to specific regions or postcodes<br><br>
+                            
+                            <strong>Trade Filter:</strong><br>
+                            • Click <span class="click-path">Trade Category</span><br>
+                            • Select your specialty (Electrical, Plumbing, Concrete, etc.)<br>
+                            • Multi-select available with Ctrl+Click
+                        </div>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-title"><span class="step-number">3</span>Set Project Value Range</div>
+                        <div class="step-detail">
+                            • Click <span class="click-path">Value Range</span> slider<br>
+                            • Set minimum value (e.g., $50,000)<br>
+                            • Set maximum value (e.g., $500,000)<br>
+                            • System shows matching tender count in real-time
+                        </div>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-title"><span class="step-number">4</span>Filter by Project Stage</div>
+                        <div class="step-detail">
+                            Select from:<br>
+                            • <strong>Tender Open:</strong> Currently accepting submissions<br>
+                            • <strong>Tender Closing Soon:</strong> Within 7 days of deadline<br>
+                            • <strong>Awarded:</strong> See successful bids (market intelligence)<br>
+                            • <strong>Planning:</strong> Early-stage opportunities
+                        </div>
+                    </div>
+                    
+                    <div class="example">
+                        <div class="example-title">💡 Example Search</div>
+                        <div class="tip-content">
+                            <strong>Scenario:</strong> Electrical contractor in Sydney seeking $100K-$800K projects<br><br>
+                            <strong>Filters Applied:</strong><br>
+                            • Location: NSW → Sydney → 2000-2100 postcodes<br>
+                            • Trade: Electrical Installation<br>
+                            • Value: $100,000 - $800,000<br>
+                            • Stage: Tender Open<br>
+                            • Result: 23 active tenders found
+                        </div>
+                    </div>
+                    
+                    <h2>Advanced Filtering Techniques</h2>
+                    
+                    <div class="step">
+                        <div class="step-title"><span class="step-number">5</span>Geographic Radius Search</div>
+                        <div class="step-detail">
+                            • Click <span class="click-path">Map View</span> toggle (top right)<br>
+                            • Enter your office address in search box<br>
+                            • Drag the radius slider (5km to 500km)<br>
+                            • Map shows all matching tenders as pins<br>
+                            • Click pins for tender preview
+                        </div>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-title"><span class="step-number">6</span>Use Advanced Keyword Search</div>
+                        <div class="step-detail">
+                            • Enter keywords in search bar: "solar panels" OR "photovoltaic"<br>
+                            • Use quotes for exact phrases: "design and construct"<br>
+                            • Exclude terms with minus: -residential (commercial only)<br>
+                            • System searches project names, descriptions, and specifications
+                        </div>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-title"><span class="step-number">7</span>Filter by Builder/Client</div>
+                        <div class="step-detail">
+                            • Click <span class="click-path">Builder</span> dropdown<br>
+                            • Search for preferred builders (e.g., "Multiplex", "Lendlease")<br>
+                            • Select multiple to see all tenders from those builders<br>
+                            • View builder's historical tender patterns
+                        </div>
+                    </div>
+                    
+                    <h2>Saving Searches & Email Alerts</h2>
+                    
+                    <div class="step">
+                        <div class="step-title"><span class="step-number">8</span>Save Your Search</div>
+                        <div class="step-detail">
+                            • After applying all filters, click <span class="click-path">Save This Search</span> button<br>
+                            • Name it descriptively: "Sydney Electrical $100K-$800K"<br>
+                            • Choose notification frequency:<br>
+                            &nbsp;&nbsp;→ Instant (email immediately when new tender matches)<br>
+                            &nbsp;&nbsp;→ Daily digest (morning summary)<br>
+                            &nbsp;&nbsp;→ Weekly summary (every Monday)<br>
+                            • Click <span class="click-path">Save & Activate Alerts</span>
+                        </div>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-title"><span class="step-number">9</span>Manage Saved Searches</div>
+                        <div class="step-detail">
+                            Navigate to: <span class="click-path">My Account → Saved Searches</span><br>
+                            • View all active searches<br>
+                            • Edit filters or alert frequency<br>
+                            • Pause alerts temporarily (e.g., during holidays)<br>
+                            • Delete outdated searches
+                        </div>
+                    </div>
+                    
+                    <div class="tip">
+                        <div class="tip-title">💡 Pro Tip: Create Multiple Saved Searches</div>
+                        <div class="tip-content">
+                            Set up 3-5 searches with varying criteria:<br>
+                            1. <strong>Sweet Spot:</strong> Your ideal project size and type (daily alerts)<br>
+                            2. <strong>Premium:</strong> Larger, aspirational projects (weekly alerts)<br>
+                            3. <strong>Backup:</strong> Smaller jobs to fill gaps (daily alerts)<br>
+                            4. <strong>Geographic:</strong> Different regions you service<br>
+                            5. <strong>Competitor Watch:</strong> Track specific builders' activity
+                        </div>
+                    </div>
+                    
+                    <h2>AI Recommendations</h2>
+                    
+                    <div class="step">
+                        <div class="step-title"><span class="step-number">10</span>Set Up Company Profile for AI</div>
+                        <div class="step-detail">
+                            Navigate to: <span class="click-path">Settings → Company Profile</span><br>
+                            Complete these sections for better AI matching:<br>
+                            • <strong>Primary Trades:</strong> Select all trades you service<br>
+                            • <strong>Service Regions:</strong> Geographic coverage areas<br>
+                            • <strong>Typical Project Size:</strong> Min/max comfortable project values<br>
+                            • <strong>Specializations:</strong> Niche expertise (e.g., heritage buildings)<br>
+                            • <strong>Certifications:</strong> Licenses, accreditations, insurance levels
+                        </div>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-title"><span class="step-number">11</span>Review AI Recommendations</div>
+                        <div class="step-detail">
+                            Access: <span class="click-path">Dashboard → Recommended For You</span><br>
+                            • AI analyzes your profile, bid history, and win rates<br>
+                            • Shows match percentage (70%+ are strong fits)<br>
+                            • Click "Why recommended?" to see reasoning<br>
+                            • Thumbs up/down to improve future recommendations
+                        </div>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-title"><span class="step-number">12</span>Train the AI</div>
+                        <div class="step-detail">
+                            For each recommended tender:<br>
+                            • Click <span class="click-path">👍</span> if it's a good match (even if you don't bid)<br>
+                            • Click <span class="click-path">👎</span> if irrelevant, and select reason:<br>
+                            &nbsp;&nbsp;→ Wrong location<br>
+                            &nbsp;&nbsp;→ Wrong trade<br>
+                            &nbsp;&nbsp;→ Value too high/low<br>
+                            &nbsp;&nbsp;→ Unrealistic timeline<br>
+                            AI learns within 2-3 weeks of consistent feedback
+                        </div>
+                    </div>
+                    
+                    <h2>Complete Search Workflow</h2>
+                    
+                    <div class="workflow-stage">
+                        <h3>Daily Morning Routine (10 minutes)</h3>
+                        <strong>8:00 AM - Check New Tenders</strong><br>
+                        1. Open email alerts from saved searches<br>
+                        2. Review AI recommendations on dashboard<br>
+                        3. Star high-priority tenders for detailed review<br><br>
+                        
+                        <strong>8:10 AM - Quick Filter Scan</strong><br>
+                        4. Run manual search with "Last 24 hours" filter<br>
+                        5. Check "Closing This Week" for urgent deadlines<br>
+                        6. Add promising tenders to watchlist
+                    </div>
+                    
+                    <div class="warning">
+                        <div class="warning-title">⚠️ Common Mistakes to Avoid</div>
+                        <div class="tip-content">
+                            • <strong>Too Narrow Filters:</strong> Don't miss opportunities—cast a wide net initially<br>
+                            • <strong>Ignoring Awarded Tenders:</strong> Valuable for competitive intelligence and pricing benchmarks<br>
+                            • <strong>Not Updating Profile:</strong> AI recommendations degrade if your profile is outdated<br>
+                            • <strong>Alert Overload:</strong> Too many instant alerts create noise—use daily digests instead<br>
+                            • <strong>Forgetting Addendums:</strong> Always enable "Addendum Alerts" for active tenders
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- TOOL 2: DIGITAL TAKEOFF -->
+            <div class="accordion-item">
+                <div class="accordion-header" onclick="toggleAccordion(this)">
+                    <div class="accordion-title">📐 2. Digital Takeoff Tool - Measure & Quantify Materials</div>
+                    <div class="accordion-icon">▼</div>
+                </div>
+                <div class="accordion-content">
+                    <div style="text-align: center; margin: 10px 1%;">
+                        <span class="badge badge-time">⏱ 30-90 min per project</span>
+                        <span class="badge badge-difficulty">📊 Intermediate</span>
+                    </div>
+                    
+                    <h2>Getting Started with Takeoff</h2>
+                    
+                    <div class="step">
+                        <div class="step-title"><span class="step-number">1</span>Open a Tender for Takeoff</div>
+                        <div class="step-detail">
+                            From your tender list:<br>
+                            • Click on the tender name<br>
+                            • Navigate to <span class="click-path">Documents</span> tab<br>
+                            • Click <span class="click-path">Start Takeoff</span> button (top right)<br>
+                            • This opens the Takeoff Tool interface
+                        </div>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-title"><span class="step-number">2</span>Import/Select Drawings</div>
+                        <div class="step-detail">
+                            In the Document panel (left side):<br>
+                            • Browse available PDF drawings<br>
+                            • Check boxes for drawings you need to measure<br>
+                            • Common selections: Floor Plans, Elevations, Details<br>
+                            • Click <span class="click-path">Load Selected Drawings</span><br>
+                            • System processes PDFs (10-30 seconds)
+                        </div>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-title"><span class="step-number">3</span>Calibrate the Scale</div>
+                        <div class="step-detail">
+                            <strong>CRITICAL STEP - Accuracy depends on this!</strong><br><br>
+                            • Click <span class="click-path">Set Scale</span> tool (ruler icon)<br>
+                            • Find a dimension line on the drawing (e.g., "10,000mm")<br>
+                            • Click start point, then end point of that dimension<br>
+                            • Enter the actual dimension: "10000"<br>
+                            • Select units: mm, m, cm, inches, feet<br>
+                            • Click <span class="click-path">Apply Scale</span><br><br>
+                            
+                            <strong>Verify:</strong> Use scale tool to measure another known dimension to confirm accuracy
+                        </div>
+                    </div>
+                    
+                    <div class="warning">
+                        <div class="warning-title">⚠️ Scale Calibration Warning</div>
+                        <div class="tip-content">
+                            • Each drawing may have a different scale<br>
+                            • ALWAYS recalibrate when switching to a new sheet<br>
+                            • Check scale notation on drawing (e.g., "1:100")<br>
+                            • If PDF was scanned poorly, dimensions may be unreliable<br>
+                            • Contact builder for clarification if scales don't match
+                        </div>
+                    </div>
+                    
+                    <h2>Measurement Tools & Techniques</h2>
+                    
+                    <div class="step">
+                        <div class="step-title"><span class="step-number">4</span>Linear Measurements (Keyboard: L)</div>
+                        <div class="step-detail">
+                            <strong>Use for:</strong> Conduit runs, piping, walls, perimeters, cable length<br><br>
+                            
+                            <strong>How to measure:</strong><br>
+                            1. Press <span class="shortcut-key">L</span> or click Linear tool<br>
+                            2. Click starting point on drawing<br>
+                            3. Click each corner/turn point<br>
+                            4. Double-click to finish<br>
+                            5. System shows total length automatically<br><br>
+                            
+                            <strong>Advanced:</strong><br>
+                            • Hold <span class="shortcut-key">Shift</span> for straight lines (0°, 45°, 90°)<br>
+                            • Press <span class="shortcut-key">Backspace</span> to undo last point<br>
+                            • Right-click → Add Node to insert point on existing line
+                        </div>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-title"><span class="step-number">5</span>Area Measurements (Keyboard: A)</div>
+                        <div class="step-detail">
+                            <strong>Use for:</strong> Floor areas, walls, ceilings, tiling, painting, concrete slabs<br><br>
+                            
+                            <strong>How to measure:</strong><br>
+                            1. Press <span class="shortcut-key">A</span> or click Area tool<br>
+                            2. Click each corner of the area<br>
+                            3. Close the shape by clicking near the first point<br>
+                            4. System calculates area in m² or ft²<br><br>
+                            
+                            <strong>Shapes available:</strong><br>
+                            • <strong>Polygon:</strong> Irregular shapes (default)<br>
+                            • <strong>Rectangle:</strong> Click two diagonal corners<br>
+                            • <strong>Circle:</strong> Click center, drag to edge<br>
+                            • <strong>Ellipse:</strong> Click center, set width, set height
+                        </div>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-title"><span class="step-number">6</span>Count Tool (Keyboard: C)</div>
+                        <div class="step-detail">
+                            <strong>Use for:</strong> Light fixtures, outlets, switches, doors, windows, columns<br><br>
+                            
+                            <strong>How to count:</strong><br>
+                            1. Press <span class="shortcut-key">C</span> or click Count tool<br>
+                            2. Click on each item to count<br>
+                            3. System increments counter with each click<br>
+                            4. Each click drops a numbered marker<br><br>
+                            
+                            <strong>Batch counting:</strong><br>
+                            • Use Area Count: draw area containing multiple items<br>
+                            • Enter quantity per area (e.g., "12 downlights in this room")<br>
+                            • Useful for repetitive floor layouts
+                        </div>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-title"><span class="step-number">7</span>Volume Measurements (Keyboard: V)</div>
+                        <div class="step-detail">
+                            <strong>Use for:</strong> Concrete pours, earthworks, fill, demolition<br><br>
+                            
+                            <strong>Method 1 - Area × Depth:</strong><br>
+                            1. Measure area (as above)<br>
+                            2. Right-click on area → "Convert to Volume"<br>
+                            3. Enter depth/height (e.g., "150mm slab")<br>
+                            4. System calculates volume in m³<br><br>
+                            
+                            <strong>Method 2 - Complex Volumes:</strong><br>
+                            • Use multiple sections at different elevations<br>
+                            • System interpolates volume between sections<br>
+                            • Accurate for sloped/irregular excavations
+                        </div>
+                    </div>
+                    
+                    <div class="shortcut-box">
+                        <h3 style="color: #60a5fa; margin-bottom: 8px;">⌨️ Essential Keyboard Shortcuts</h3>
+                        <span class="shortcut-key">L</span> Linear measurement<br>
+                        <span class="shortcut-key">A</span> Area measurement<br>
+                        <span class="shortcut-key">C</span> Count tool<br>
+                        <span class="shortcut-key">V</span> Volume measurement<br>
+                        <span class="shortcut-key">M</span> Move/Pan drawing<br>
+                        <span class="shortcut-key">+/-</span> Zoom in/out<br>
+                        <span class="shortcut-key">Space</span> Pan (hold and drag)<br>
+                        <span class="shortcut-key">Delete</span> Remove selected measurement<br>
+                        <span class="shortcut-key">Ctrl+C</span> Copy measurement<br>
+                        <span class="shortcut-key">Ctrl+V</span> Paste measurement<br>
+                        <span class="shortcut-key">Ctrl+Z</span> Undo<br>
+                        <span class="shortcut-key">Ctrl+Y</span> Redo<br>
+                        <span class="shortcut-key">Shift</span> Constrain to straight lines
+                    </div>
+                    
+                    <h2>Layer Management for Organization</h2>
+                    
+                    <div class="step">
+                        <div class="step-title"><span class="step-number">8</span>Create Layers for Different Trades</div>
+                        <div class="step-detail">
+                            Right panel → <span class="click-path">Layers</span> tab:<br><br>
+                            
+                            1. Click <span class="click-path">+ New Layer</span><br>
+                            2. Name it descriptively: "Power Points", "Lighting Circuits", "Data Cabling"<br>
+                            3. Assign color (critical for visual clarity):<br>
+                            &nbsp;&nbsp;• Red: Fire systems<br>
+                            &nbsp;&nbsp;• Yellow: Lighting<br>
+                            &nbsp;&nbsp;• Blue: Data/comms<br>
+                            &nbsp;&nbsp;• Green: Power<br>
+                            4. Set line weight (thicker for primary systems)<br>
+                            5. Click <span class="click-path">Create Layer</span>
+                        </div>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-title"><span class="step-number">9</span>Switch Between Layers</div>
+                        <div class="step-detail">
+                            • Select a layer from dropdown (top toolbar)<br>
+                            • All new measurements go to active layer<br>
+                            • Toggle layer visibility with eye icon (show/hide)<br>
+                            • Lock layers to prevent accidental edits (padlock icon)<br><br>
+                            
+                            <strong>Benefits:</strong><br>
+                            • Isolate different trades for clarity<br>
+                            • Generate separate quantity reports per layer<br>
+                            • Share specific layers with subcontractors<br>
+                            • Multiple estimators can work on different layers simultaneously
+                        </div>
+                    </div>
+                    
+                    <div class="example">
+                        <div class="example-title">💡 Example Layer Structure - Electrical Project</div>
+                        <div class="tip-content">
+                            <strong>Layer 1:</strong> "Power Points" (Green) - All GPO measurements<br>
+                            <strong>Layer 2:</strong> "Lighting Circuits" (Yellow) - Downlights, fixtures, switches<br>
+                            <strong>Layer 3:</strong> "Data/Comms" (Blue) - Network points, phone lines<br>
+                            <strong>Layer 4:</strong> "Conduit Runs" (Orange) - Cable tray, conduit lengths<br>
+                            <strong>Layer 5:</strong> "Switchboards" (Red) - DB locations, panel counts<br>
+                            <strong>Layer 6:</strong> "Fire Systems" (Red/Bold) - Detectors, alarms, emergency lighting
+                        </div>
+                    </div>
+                    
+                    <h2>Annotations & Collaboration</h2>
+                    
+                    <div class="step">
+                        <div class="step-title"><span class="step-number">10</span>Add Notes and Markup</div>
+                        <div class="step-detail">
+                            Click <span class="click-path">Annotation</span> tool:<br><br>
+                            
+                            <strong>Text Notes:</strong><br>
+                            • Click location → Type note → Press Enter<br>
+                            • Use for clarifications: "Confirm fixture type with architect"<br>
+                            • Tag team members: "@John - check this conduit route"<br><br>
+                            
+                            <strong>Callout Boxes:</strong><br>
+                            • Highlight areas needing attention<br>
+                            • Add arrows pointing to specific details<br>
+                            • Color-code by priority (red = urgent query)<br><br>
+                            
+                            <strong>Cloud Markup:</strong><br>
+                            • Draw cloud shape around areas of concern<br>
+                            • Standard in construction for highlighting issues
+                        </div>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-title"><span class="step-number">11</span>Collaborate in Real-Time</div>
+                        <div class="step-detail">
+                            Click <span class="click-path">Share</span> button → <span class="click-path">Invite Collaborators</span><br><br>
+                            
+                            • Enter team member emails<br>
+                            • Set permissions: View Only, Edit, or Admin<br>
+                            • They receive instant access to takeoff<br>
+                            • See who's online (green dot next to name)<br>
+                            • Watch cursor movements in real-time<br>
+                            • All changes sync automatically<br>
+                            • Comment threads on specific measurements
+                        </div>
+                    </div>
+                    
+                    <h2>Exporting Quantities</h2>
+                    
+                    <div class="step">
+                        <div class="step-title"><span class="step-number">12</span>Generate Quantity Report</div>
+                        <div class="step-detail">
+                            Click <span class="click-path">Export</span> → <span class="click-path">Quantity Report</span><br><br>
+                            
+                            <strong>Report Options:</strong><br>
+                            • <strong>Format:</strong> Excel (.xlsx), PDF, CSV<br>
+                            • <strong>Grouping:</strong> By layer, by measurement type, by location<br>
+                            • <strong>Include:</strong> Measurements, annotations, preview images<br>
+                            • <strong>Summary Level:</strong> Detailed or totals only<br><br>
+                            
+                            Click <span class="click-path">Generate Report</span> → Download in 5-10 seconds
+                        </div>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-title"><span class="step-number">13</span>Export to Estimation Software</div>
+                        <div class="step-detail">
+                            <span class="click-path">Export</span> → <span class="click-path">Send to Estimating</span><br><br>
+                            
+                            <strong>Direct Integrations:</strong><br>
+                            • <strong>CostX:</strong> Click "Send to CostX" → Quantities auto-populate<br>
+                            • <strong>Buildsoft:</strong> Maps to cost database items<br>
+                            • <strong>Cubit:</strong> Creates estimate template<br><br>
+                            
+                            <strong>Manual Export:</strong><br>
+                            • Download Excel with standard column format<br>
+                            • Import to your estimating system<br>
+                            • Map columns (Description, Quantity, Unit, Rate)
+                        </div>
+                    </div>
+                    
+                    <h2>Complete Takeoff Workflow</h2>
+                    
+                    <div class="workflow-stage">
+                        <h3>🔧 Professional Takeoff Process (90 min example)</h3>
+                        
+                        <strong>Preparation (10 min):</strong><br>
+                        • Download all drawings and specifications<br>
+                        • Review scope and exclusions<br>
+                        • Create layer structure<br>
+                        • Set up measurement units<br><br>
+                        
+                        <strong>Calibration (5 min):</strong><br>
+                        • Open first floor plan<br>
+                        • Set scale accurately<br>
+                        • Verify with second dimension check<br><br>
+                        
+                        <strong>Counting Phase (20 min):</strong><br>
+                        • Count all fixtures, outlets, devices<br>
+                        • Use keyboard shortcut <span class="shortcut-key">C</span><br>
+                        • Separate counts by layer/type<br><br>
+                        
+                        <strong>Linear Measurements (25 min):</strong><br>
+                        • Measure all conduit runs, cabling<br>
+                        • Use <span class="shortcut-key">L</span> keyboard shortcut<br>
+                        • Add 10% waste factor in notes<br><br>
+                        
+                        <strong>Area Measurements (20 min):</strong><br>
+                        • Calculate walls, floors needing work<br>
+                        • Use <span class="shortcut-key">A</span> keyboard shortcut<br>
+                        • Note any irregular shapes<br><br>
+                        
+                        <strong>Review & QA (10 min):</strong><br>
+                        • Compare to specification quantities<br>
+                        • Check all layers are complete<br>
+                        • Add clarification notes<br>
+                        • Cross-reference with details/elevations<br><br>
+                        
+                        <strong>Export (5 min):</strong><br>
+                        • Generate Excel report<br>
+                        • Export to estimating software<br>
+                        • Save takeoff file for future reference
+                    </div>
+                    
+                    <div class="tip">
+                        <div class="tip-title">💡 40% Faster Takeoffs - Pro Tips</div>
+                        <div class="tip-content">
+                            1. <strong>Learn 5 keyboard shortcuts:</strong> L, A, C, Delete, Ctrl+Z (saves 15 min/project)<br>
+                            2. <strong>Use templates:</strong> Save layer structure for similar projects<br>
+                            3. <strong>Batch similar items:</strong> Do all linear first, then all area, then counts<br>
+                            4. <strong>Copy/paste repetition:</strong> If floors are identical, copy measurements to next sheet<br>
+                            5. <strong>Dual monitor setup:</strong> Specifications on one screen, takeoff on other<br>
+                            6. <strong>Voice notes:</strong> Speak queries into phone while measuring, transcribe later<br>
+                            7. <strong>Color code urgency:</strong> Red markups = must clarify before pricing
+                        </div>
+                    </div>
+                    
+                    <div class="warning">
+                        <div class="warning-title">⚠️ Common Takeoff Mistakes</div>
+                        <div class="tip-content">
+                            • <strong>Not calibrating each sheet:</strong> Different drawings have different scales<br>
+                            • <strong>Measuring at wrong units:</strong> Mixing mm and m causes 1000x errors<br>
+                            • <strong>Forgetting waste factors:</strong> Add 5-15% for cuts, offcuts, damage<br>
+                            • <strong>Ignoring addendums:</strong> Check for revised drawings before finalizing<br>
+                            • <strong>No peer review:</strong> Have someone spot-check quantities >$100K<br>
+                            • <strong>Missing hidden systems:</strong> Check ceiling plans, underground services<br>
+                            • <strong>Not saving incrementally:</strong> Save every 15 min to avoid data loss
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- TOOL 3: ESTIMATE BUILDER -->
+            <div class="accordion-item">
+                <div class="accordion-header" onclick="toggleAccordion(this)">
+                    <div class="accordion-title">💰 3. Estimate Builder - Create Detailed Cost Estimates</div>
+                    <div class="accordion-icon">▼</div>
+                </div>
+                <div class="accordion-content">
+                    <div style="text-align: center; margin: 10px 1%;">
+                        <span class="badge badge-time">⏱ 45-120 min per estimate</span>
+                        <span class="badge badge-difficulty">📊 Intermediate-Advanced</span>
+                    </div>
+                    
+                    <h2>Starting Your Estimate</h2>
+                    
+                    <div class="step">
+                        <div class="step-title"><span class="step-number">1</span>Create New Estimate</div>
+                        <div class="step-detail">
+                            From tender page:<br>
+                            • Click <span class="click-path">Create Estimate</span> button<br>
+                            • OR navigate: <span class="click-path">Estimates → New Estimate</span><br><br>
+                            
+                            Fill in project details:<br>
+                            • <strong>Project Name:</strong> Match tender name<br>
+                            • <strong>Client/Builder:</strong> Auto-fills from tender<br>
+                            • <strong>Estimate Date:</strong> Today's date<br>
+                            • <strong>Validity Period:</strong> Typically 30-90 days<br>
+                            • <strong>Template:</strong> Select if using saved template (optional)<br><br>
+                            
+                            Click <span class="click-path">Create Estimate</span>
+                        </div>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-title"><span class="step-number">2</span>Import Quantities from Takeoff</div>
+                        <div class="step-detail">
+                            Click <span class="click-path">Import Quantities</span> button:<br><br>
+                            
+                            <strong>Option 1 - From Takeoff Tool:</strong><br>
+                            • Select "Import from Takeoff"<br>
+                            • Choose the takeoff file you created<br>
+                            • Select layers to import (or all)<br>
+                            • Quantities auto-populate line items<br><br>
+                            
+                            <strong>Option 2 - Upload Excel:</strong><br>
+                            • Click "Upload Spreadsheet"<br>
+                            • Map columns: Description → Item, Qty → Quantity, etc.<br>
+                            • Review preview, click "Import"<br><br>
+                            
+                            <strong>Option 3 - Manual Entry:</strong><br>
+                            • Click <span class="click-path">+ Add Line Item</span> for each item<br>
+                            • Enter description, quantity, unit
+                        </div>
+                    </div>
+                    
+                    <h2>Building Your Estimate - Pricing Line Items</h2>
+                    
+                    <div class="step">
+                        <div class="step-title"><span class="step-number">3</span>Access Rate Libraries</div>
+                        <div class="step-detail">
+                            For each line item, click in the "Rate" column:<br><br>
+                            
+                            <strong>Rate Library Dropdown appears:</strong><br>
+                            • <strong>Company Rates:</strong> Your historical pricing<br>
+                            • <strong>Recent Projects:</strong> Last 10 jobs, filtered by item type<br>
+                            • <strong>Industry Benchmark:</strong> Average rates in your region (2026 data)<br>
+                            • <strong>Supplier Quotes:</strong> If integrated with supplier systems<br><br>
+                            
+                            Click to select a rate → Auto-fills → Calculates line total
+                        </div>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-title"><span class="step-number">4</span>Build Composite Rates</div>
+                        <div class="step-detail">
+                            For complex items, click <span class="click-path">Build Rate</span>:<br><br>
+                            
+                            <strong>Example: Installing a Light Fixture</strong><br>
+                            Opens rate builder popup:<br><br>
+                            
+                            <strong>Materials:</strong><br>
+                            • Fixture: $85.00<br>
+                            • Wire (15m @ $2.50/m): $37.50<br>
+                            • Junction box: $12.00<br>
+                            • Consumables (screws, etc.): $5.00<br>
+                            <strong>Material Subtotal: $139.50</strong><br><br>
+                            
+                            <strong>Labor:</strong><br>
+                            • Installation time: 1.5 hours<br>
+                            • Labor rate: $85/hour<br>
+                            • Labor cost: $127.50<br><br>
+                            
+                            <strong>Equipment:</strong><br>
+                            • Scissor lift (if needed): $25/day ÷ 8 fixtures = $3.13<br><br>
+                            
+                            <strong>Total Rate: $270.13 per fixture</strong><br><br>
+                            
+                            Click <span class="click-path">Save to Rate Library</span> for future use
+                        </div>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-title"><span class="step-number">5</span>Apply Labor/Material/Equipment Breakdown</div>
+                        <div class="step-detail">
+                            Toggle <span class="click-path">Show Breakdown</span> (top right):<br><br>
+                            
+                            Table expands to show columns:<br>
+                            • <strong>Material Cost</strong><br>
+                            • <strong>Labor Cost</strong><br>
+                            • <strong>Equipment Cost</strong><br>
+                            • <strong>Subcontractor Cost</strong><br>
+                            • <strong>Other</strong><br><br>
+                            
+                            <strong>Why this matters:</strong><br>
+                            • Track labor vs. materials ratio (typical: 60/40)<br>
+                            • Helps with cash flow planning<br>
+                            • Some builders require this breakdown<br>
+                            • Easier to adjust if material prices change
+                        </div>
+                    </div>
+                    
+                    <div class="example">
+                        <div class="example-title">💡 Example Estimate Structure</div>
+                        <div class="tip-content">
+                            <strong>SECTION 1: POWER INSTALLATION</strong><br>
+                            1.1 GPO Single - Surface Mount: 45 @ $120 = $5,400<br>
+                            1.2 GPO Double - Flush Mount: 32 @ $165 = $5,280<br>
+                            1.3 Industrial Power Points 15A: 8 @ $280 = $2,240<br>
+                            <strong>Subtotal Power: $12,920</strong><br><br>
+                            
+                            <strong>SECTION 2: LIGHTING</strong><br>
+                            2.1 LED Downlight 90mm: 120 @ $95 = $11,400<br>
+                            2.2 Linear LED Battens 1200mm: 24 @ $185 = $4,440<br>
+                            2.3 Emergency Exit Lights: 12 @ $320 = $3,840<br>
+                            <strong>Subtotal Lighting: $19,680</strong><br><br>
+                            
+                            <strong>SECTION 3: DATA/COMMUNICATIONS</strong><br>
+                            3.1 Cat6 Data Points: 65 @ $145 = $9,425<br>
+                            <strong>Subtotal Data: $9,425</strong><br><br>
+                            
+                            <strong>SUBTOTAL: $42,025</strong><br>
+                            <strong>Margin (18%): $7,565</strong><br>
+                            <strong>TOTAL: $49,590</strong>
+                        </div>
+                    </div>
+                    
+                    <h2>Margins, Markups & Adjustments</h2>
+                    
+                    <div class="step">
+                        <div class="step-title"><span class="step-number">6</span>Calculate Margins and Markups</div>
+                        <div class="step-detail">
+                            At bottom of estimate, click <span class="click-path">Margin Settings</span>:<br><br>
+                            
+                            <strong>Understanding the Difference:</strong><br>
+                            • <strong>Markup:</strong> Added to cost (e.g., cost $100 + 20% markup = $120 sell)<br>
+                            • <strong>Margin:</strong> Percentage of sell price (e.g., $120 sell - 16.67% margin = $100 cost)<br><br>
+                            
+                            <strong>Set Your Target:</strong><br>
+                            • Choose "Margin" or "Markup" mode<br>
+                            • Enter percentage (e.g., 15%)<br>
+                            • System calculates final price<br>
+                            • Shows gross profit in dollars<br><br>
+                            
+                            <strong>Typical Industry Margins 2026:</strong><br>
+                            • Small jobs (<$50K): 20-25%<br>
+                            • Medium jobs ($50K-$250K): 15-20%<br>
+                            • Large jobs (>$250K): 12-18%<br>
+                            • Government/Public: 8-12% (competitive)
+                        </div>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-title"><span class="step-number">7</span>Add Project Overheads</div>
+                        <div class="step-detail">
+                            Click <span class="click-path">+ Add Overhead Item</span>:<br><br>
+                            
+                            Common overhead items:<br>
+                            • <strong>Site Establishment:</strong> Temporary power, fencing, site office<br>
+                            • <strong>Project Management:</strong> % of labor cost or fixed fee<br>
+                            • <strong>Insurance:</strong> Public liability, contract works<br>
+                            • <strong>Permits & Fees:</strong> Council, utility connection fees<br>
+                            • <strong>Testing & Commissioning:</strong> Final inspections<br>
+                            • <strong>Mobilization/Demobilization:</strong> Transport equipment to site<br>
+                            • <strong>Waste Disposal:</strong> Skip bins, material disposal fees<br><br>
+                            
+                            Each can be:<br>
+                            • Fixed amount ($5,000)<br>
+                            • Percentage of subtotal (3%)<br>
+                            • Per unit (e.g., $200/week for site duration)
+                        </div>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-title"><span class="step-number">8</span>Apply Contingencies</div>
+                        <div class="step-detail">
+                            Click <span class="click-path">Contingency</span> section:<br><br>
+                            
+                            <strong>Risk-Based Contingency:</strong><br>
+                            • <strong>Low Risk:</strong> Similar past projects, clear scope (2-5%)<br>
+                            • <strong>Medium Risk:</strong> Some unknowns, tight timeline (5-10%)<br>
+                            • <strong>High Risk:</strong> Complex, heritage, incomplete design (10-15%)<br><br>
+                            
+                            <strong>Note:</strong> Contingency is for YOUR risk, not to be disclosed to client.<br>
+                            Include it in your overall margin calculation.
+                        </div>
+                    </div>
+                    
+                    <div class="tip">
+                        <div class="tip-title">💡 Pro Pricing Strategy</div>
+                        <div class="tip-content">
+                            <strong>Bottom-Up Build:</strong><br>
+                            1. Calculate true cost (materials + labor + equipment)<br>
+                            2. Add project overheads (10-15% of cost)<br>
+                            3. Add contingency based on risk (5-10%)<br>
+                            4. Add desired margin (15-20%)<br>
+                            5. Compare to market rates and historical bids<br>
+                            6. Adjust if way out of line, but understand why<br><br>
+                            
+                            <strong>Reality Check:</strong><br>
+                            • Cost per m²: Compare to similar projects<br>
+                            • Labor hours: Does it feel right for scope?<br>
+                            • Material waste: Have you allowed 10%?<br>
+                            • Would YOU accept this price as a builder?
+                        </div>
+                    </div>
+                    
+                    <h2>Finalizing & Generating Estimate</h2>
+                    
+                    <div class="step">
+                        <div class="step-title"><span class="step-number">9</span>Add Qualifications & Exclusions</div>
+                        <div class="step-detail">
+                            Scroll to <span class="click-path">Notes & Conditions</span> section:<br><br>
+                            
+                            <strong>Include in Every Estimate:</strong><br><br>
+                            
+                            <strong>Inclusions (what you WILL do):</strong><br>
+                            • "Supply and install as per drawings dated XX/XX/2026"<br>
+                            • "Include testing and commissioning"<br>
+                            • "Includes builders cleanup"<br><br>
+                            
+                            <strong>Exclusions (what you WON'T do):</strong><br>
+                            • "Excludes structural modifications"<br>
+                            • "Excludes asbestos removal"<br>
+                            • "Assumes builder provides power and water"<br>
+                            • "Excludes permit fees"<br><br>
+                            
+                            <strong>Assumptions:</strong><br>
+                            • "Based on site inspection dated XX/XX/2026"<br>
+                            • "Assumes level access for delivery vehicles"<br>
+                            • "Pricing valid for 60 days"<br>
+                            • "Subject to final design confirmation"<br><br>
+                            
+                            <strong>Payment Terms:</strong><br>
+                            • "30% deposit, progress claims monthly, 10% retention"<br>
+                            • "Payment terms: 14 days from invoice date"
+                        </div>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-title"><span class="step-number">10</span>Review Summary & Totals</div>
+                        <div class="step-detail">
+                            Click <span class="click-path">Summary View</span> toggle:<br><br>
+                            
+                            Check these critical figures:<br>
+                            ✓ Subtotal (all line items)<br>
+                            ✓ Overheads total<br>
+                            ✓ Margin amount ($)<br>
+                            ✓ GST (if applicable)<br>
+                            ✓ <strong>GRAND TOTAL</strong><br><br>
+                            
+                            Verify:<br>
+                            • Total matches your target budget<br>
+                            • Margin % is what you intended<br>
+                            • No items at $0 rate (common error)<br>
+                            • Quantities match takeoff report
+                        </div>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-title"><span class="step-number">11</span>Generate PDF Estimate</div>
+                        <div class="step-detail">
+                            Click <span class="click-path">Generate PDF</span> button:<br><br>
+                            
+                            <strong>Template Options:</strong><br>
+                            • <strong>Detailed:</strong> Shows every line item (for client review)<br>
+                            • <strong>Summary:</strong> Grouped by section totals only (cleaner)<br>
+                            • <strong>Formal Quote:</strong> Company letterhead, T&Cs, signature block<br><br>
+                            
+                            <strong>Customization:</strong><br>
+                            • Add company logo (upload once, reuses)<br>
+                            • Include/exclude cost breakdown<br>
+                            • Show/hide quantities and rates<br>
+                            • Attach supporting documents (specs, plans)<br><br>
+                            
+                            <strong>Preview → Adjust → Download PDF</strong>
+                        </div>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-title"><span class="step-number">12</span>Save as Template (Optional)</div>
+                        <div class="step-detail">
+                            If this is a common project type:<br><br>
+                            
+                            Click <span class="click-path">Save as Template</span>:<br>
+                            • Name: "Office Fitout - Electrical Package"<br>
+                            • Saves structure, sections, standard items<br>
+                            • Preserves rates (update periodically)<br>
+                            • Next time: Start from template → Adjust quantities<br><br>
+                            
+                            <strong>Huge time saver:</strong> Reduces 90-min estimate to 20 min for similar projects
+                        </div>
+                    </div>
+                    
+                    <h2>Complete Estimate Workflow</h2>
+                    
+                    <div class="workflow-stage">
+                        <h3>🏗️ Professional Estimating Process (120 min example)</h3>
+                        
+                        <strong>Setup (10 min):</strong><br>
+                        • Create new estimate<br>
+                        • Import quantities from takeoff<br>
+                        • Organize into sections<br><br>
+                        
+                        <strong>Material Pricing (30 min):</strong><br>
+                        • Get supplier quotes for major items<br>
+                        • Use rate library for standard items<br>
+                        • Build composite rates for complex items<br>
+                        • Add 10% material waste factor<br><br>
+                        
+                        <strong>Labor Calculation (25 min):</strong><br>
+                        • Estimate hours per item type<br>
+                        • Apply current labor rates<br>
+                        • Include allowances (RDOs, travel, etc.)<br>
+                        • Factor in productivity (site conditions)<br><br>
+                        
+                        <strong>Equipment & Overheads (15 min):</strong><br>
+                        • Scaffolding, lifts, tools<br>
+                        • Site establishment<br>
+                        • Project management<br>
+                        • Insurance, permits<br><br>
+                        
+                        <strong>Margin & Risk (10 min):</strong><br>
+                        • Review total cost<br>
+                        • Assess project risk<br>
+                        • Set appropriate margin<br>
+                        • Add contingency<br><br>
+                        
+                        <strong>Documentation (20 min):</strong><br>
+                        • Write inclusions/exclusions<br>
+                        • Add qualifications<br>
+                        • Review for errors<br>
+                        • Generate PDF<br><br>
+                        
+                        <strong>Final Review (10 min):</strong><br>
+                        • Cross-check against scope<br>
+                        • Sanity check: $ per m², labor hours<br>
+                        • Compare to past similar jobs<br>
+                        • Director/senior approval if >$200K
+                    </div>
+                    
+                    <div class="warning">
+                        <div class="warning-title">⚠️ Critical Estimate Errors to Avoid</div>
+                        <div class="tip-content">
+                            • <strong>Quantity mistakes:</strong> Decimal point errors (100 vs 10.0) = 10x cost difference<br>
+                            • <strong>Missing scope:</strong> Not reading specs thoroughly, missing an entire section<br>
+                            • <strong>Unit confusion:</strong> Quoting per m when client expects per m²<br>
+                            • <strong>Outdated rates:</strong> Using 2024 prices in 2026 (material inflation 8-15%)<br>
+                            • <strong>No allowances:</strong> Forgetting waste, site access difficulties, weather delays<br>
+                            • <strong>Underestimating hours:</strong> Being too optimistic on productivity<br>
+                            • <strong>Copy-paste errors:</strong> Copying old estimate but not updating project-specific details<br>
+                            • <strong>Qualification mismatch:</strong> Your exclusions don't match tender requirements = ineligible bid
+                        </div>
+                    </div>
+                    
+                    <div class="tip">
+                        <div class="tip-title">💡 Winning Estimate Checklist</div>
+                        <div class="tip-content">
+                            ✓ All quantities cross-checked against takeoff report<br>
+                            ✓ Material quotes dated within last 14 days<br>
+                            ✓ Labor rates match current EBA/Award<br>
+                            ✓ Overheads calculated, not guessed<br>
+                            ✓ Margin appropriate for project risk<br>
+                            ✓ Inclusions/exclusions clearly stated<br>
+                            ✓ Payment terms specified<br>
+                            ✓ Validity period stated<br>
+                            ✓ Company details and ABN correct<br>
+                            ✓ Professional PDF formatting<br>
+                            ✓ Math checked (subtotals, GST, total)<br>
+                            ✓ Peer reviewed if >$100K<br>
+                            ✓ Submitted before deadline (not last minute!)
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- TOOL 4: DOCUMENT MANAGER -->
+            <div class="accordion-item">
+                <div class="accordion-header" onclick="toggleAccordion(this)">
+                    <div class="accordion-title">📁 4. Document Manager - Centralize Tender Documentation</div>
+                    <div class="accordion-icon">▼</div>
+                </div>
+                <div class="accordion-content">
+                    <div style="text-align: center; margin: 10px 1%;">
+                        <span class="badge badge-time">⏱ 15-30 min setup + ongoing</span>
+                        <span class="badge badge-difficulty">📊 Beginner</span>
+                    </div>
+                    
+                    <h2>Accessing Document Manager</h2>
+                    
+                    <div class="step">
+                        <div class="step-title"><span class="step-number">1</span>Navigate to Tender Documents</div>
+                        <div class="step-detail">
+                            From your active tender:<br>
+                            • Click tender name from search results<br>
+                            • Navigate to <span class="click-path">Documents</span> tab<br>
+                            • Document Manager interface loads<br><br>
+                            
+                            You'll see:<br>
+                            • Left panel: Folder tree structure<br>
+                            • Center panel: File list with preview<br>
+                            • Right panel: Document details and actions
+                        </div>
+                    </div>
+                    
+                    <h2>Automatic Organization</h2>
+                    
+                    <div class="step">
+                        <div class="step-title"><span class="step-number">2</span>Understand Auto-Categorization</div>
+                        <div class="step-detail">
+                            When builder uploads documents, AI automatically sorts them into:<br><br>
+                            
+                            <strong>📐 Drawings:</strong><br>
+                            • Architectural plans<br>
+                            • Structural drawings<br>
+                            • MEP (Mechanical, Electrical, Plumbing) plans<br>
+                            • Details and sections<br><br>
+                            
+                            <strong>📄 Specifications:</strong><br>
+                            • Technical specifications<br>
+                            • Material schedules<br>
+                            • Performance requirements<br><br>
+                            
+                            <strong>📋 Contract Documents:</strong><br>
+                            • Tender conditions<br>
+                            • Contract template<br>
+                            • Insurance requirements<br>
+                            • Safety plans<br><br>
+                            
+                            <strong>💼 Commercial:</strong><br>
+                            • Bills of quantities<br>
+                            • Pricing schedules<br>
+                            • Payment terms<br><br>
+                            
+                            <strong>🔄 Addendums:</strong><br>
+                            • Design changes<br>
+                            • Scope clarifications<br>
+                            • RFI responses
+                        </div>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-title"><span class="step-number">3</span>Manually Categorize if Needed</div>
+                        <div class="step-detail">
+                            If a document is miscategorized:<br><br>
+                            
+                            • Right-click on document<br>
+                            • Select <span class="click-path">Move to...</span><br>
+                            • Choose correct folder<br>
+                            • Or drag-and-drop to folder<br><br>
+                            
+                            Common fixes:<br>
+                            • "Site photos" incorrectly in Drawings → Move to new "Photos" folder<br>
+                            • "Geotechnical report" in Specs → Create "Reports" folder
+                        </div>
+                    </div>
+                    
+                    <h2>Version Control & Tracking</h2>
+                    
+                    <div class="step">
+                        <div class="step-title"><span class="step-number">4</span>Track Document Versions</div>
+                        <div class="step-detail">
+                            Click on any document → Right panel shows:<br><br>
+                            
+                            <strong>Version History:</strong><br>
+                            • Version 1: "Floor Plan - Ground.pdf" (Uploaded 12/01/26)<br>
+                            • Version 2: "Floor Plan - Ground_Rev A.pdf" (Uploaded 18/01/26)<br>
+                            • Version 3: "Floor Plan - Ground_Rev B.pdf" (Uploaded 25/01/26) ← CURRENT<br><br>
+                            
+                            <strong>Actions available:</strong><br>
+                            • <span class="click-path">View</span> - Open any version<br>
+                            • <span class="click-path">Download</span> - Save to computer<br>
+                            • <span class="click-path">Compare</span> - Visual diff between versions<br>
+                            • <span class="click-path">Set as Current</span> - If you need to revert<br><br>
+                            
+                            System automatically:<br>
+                            • Detects superseded versions (same filename, different date)<br>
+                            • Marks old versions as "Superseded" (greyed out)<br>
+                            • Highlights "CURRENT" version in green
+                        </div>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-title"><span class="step-number">5</span>Compare Drawing Versions</div>
+                        <div class="step-detail">
+                            Critical for identifying changes:<br><br>
+                            
+                            • Select document with multiple versions<br>
+                            • Click <span class="click-path">Compare Versions</span><br>
+                            • Choose two versions to compare (e.g., Rev A vs Rev B)<br>
+                            • System overlays drawings:<br>
+                            &nbsp;&nbsp;→ <span style="color: #ef4444;">Red</span> = Deleted/removed elements<br>
+                            &nbsp;&nbsp;→ <span style="color: #22c55e;">Green</span> = Added/new elements<br>
+                            &nbsp;&nbsp;→ <span style="color: #f59e0b;">Yellow</span> = Modified elements<br>
+                            &nbsp;&nbsp;→ Grey = Unchanged<br><br>
+                            
+                            • Click on highlighted changes for details<br>
+                            • Export comparison report as PDF<br>
+                            • Share with team: "Note door location changed in Room 3.12"
+                        </div>
+                    </div>
+                    
+                    <div class="warning">
+                        <div class="warning-title">⚠️ Version Control Critical Alert</div>
+                        <div class="tip-content">
+                            <strong>ALWAYS work from the latest version!</strong><br><br>
+                            
+                            Before starting any takeoff or pricing:<br>
+                            1. Check <span class="click-path">Last Updated</span> date<br>
+                            2. Look for "Superseded" tags<br>
+                            3. Review addendum log<br>
+                            4. Compare latest to your last download<br><br>
+                            
+                            <strong>Real story:</strong> A contractor priced based on Rev A drawings, but Rev C (uploaded 2 days before tender close) added an entire floor. Lost $180K bid because quantities were way off.
+                        </div>
+                    </div>
+                    
+                    <h2>Addendum Notifications</h2>
+                    
+                    <div class="step">
+                        <div class="step-title"><span class="step-number">6</span>Set Up Addendum Alerts</div>
+                        <div class="step-detail">
+                            For each active tender:<br><br>
+                            
+                            Click <span class="click-path">⚙️ Tender Settings</span> (top right):<br>
+                            • Toggle "Addendum Notifications" ON<br>
+                            • Choose notification method:<br>
+                            &nbsp;&nbsp;→ Email (immediate)<br>
+                            &nbsp;&nbsp;→ SMS (for critical tenders)<br>
+                            &nbsp;&nbsp;→ Push notification (mobile app)<br>
+                            • Set notification recipients:<br>
+                            &nbsp;&nbsp;→ Estimator<br>
+                            &nbsp;&nbsp;→ Project Manager<br>
+                            &nbsp;&nbsp;→ Director (for high-value tenders)<br><br>
+                            
+                            Click <span class="click-path">Save Notification Preferences</span>
+                        </div>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-title"><span class="step-number">7</span>Review Addendum Log</div>
+                        <div class="step-detail">
+                            Click <span class="click-path">Addendums</span> tab:<br><br>
+                            
+                            Shows chronological list:<br><br>
+                            
+                            <strong>Addendum 1 - 15/01/2026</strong><br>
+                            • Type: Drawing Update<br>
+                            • Files: Electrical Plan Level 2 - Rev B<br>
+                            • Description: "Relocated switchboard to Room 2.08"<br>
+                            • Status: ✓ Reviewed<br><br>
+                            
+                            <strong>Addendum 2 - 22/01/2026</strong><br>
+                            • Type: Scope Clarification<br>
+                            • Files: RFI Response #12.pdf<br>
+                            • Description: "Contractor to supply conduit in concrete slabs"<br>
+                            • Status: ⚠️ Requires Action<br><br>
+                            
+                            <strong>Addendum 3 - 28/01/2026</strong><br>
+                            • Type: Tender Extension<br>
+                            • Files: None<br>
+                            • Description: "Tender close extended to 05/02/2026"<br>
+                            • Status: ✓ Acknowledged<br><br>
+                            
+                            For each addendum:<br>
+                            • Mark as <span class="click-path">Reviewed</span> after reading<br>
+                            • Add internal notes: "Impact: +15 hours labor, +$2,400"<br>
+                            • Assign to team member if action needed<br>
+                            • Link to estimate line items affected
+                        </div>
+                    </div>
+                    
+                    <div class="tip">
+                        <div class="tip-title">💡 Addendum Management Best Practice</div>
+                        <div class="tip-content">
+                            <strong>Daily routine for active tenders:</strong><br>
+                            9:00 AM - Check addendum log for all tenders closing this week<br>
+                            • Review any new addendums<br>
+                            • Assess impact on your estimate<br>
+                            • Update quantities/pricing if needed<br>
+                            • Document changes in estimate notes<br><br>
+                            
+                            <strong>Before submitting bid:</strong><br>
+                            • Final check 2 hours before deadline<br>
+                            • Confirm "No new addendums since last review"<br>
+                            • Include statement: "Estimate based on documents including Addendum 1-3 dated XX/XX/2026"
+                        </div>
+                    </div>
+                    
+                    <h2>Bulk Download Operations</h2>
+                    
+                    <div class="step">
+                        <div class="step-title"><span class="step-number">8</span>Download Document Packages</div>
+                        <div class="step-detail">
+                            <strong>Option 1 - Download All:</strong><br>
+                            • Click <span class="click-path">Download All Documents</span> button (top right)<br>
+                            • System creates ZIP file with folder structure<br>
+                            • Downloads all current versions only<br>
+                            • Typical size: 50-500 MB depending on project<br>
+                            • Download time: 30 seconds to 5 minutes<br><br>
+                            
+                            <strong>Option 2 - Selective Download:</strong><br>
+                            • Check boxes next to specific documents<br>
+                            • Click <span class="click-path">Download Selected (12)</span><br>
+                            • Creates ZIP with only selected files<br><br>
+                            
+                            <strong>Option 3 - Folder Download:</strong><br>
+                            • Right-click on folder (e.g., "Electrical Drawings")<br>
+                            • Select <span class="click-path">Download Folder</span><br>
+                            • Gets all documents in that category
+                        </div>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-title"><span class="step-number">9</span>Smart Download Filters</div>
+                        <div class="step-detail">
+                            Before downloading, apply filters:<br><br>
+                            
+                            <strong>Filter Options:</strong><br>
+                            • <strong>Document Type:</strong> PDFs only, Drawings only, Specs only<br>
+                            • <strong>Date Range:</strong> "Last 7 days" (get recent changes only)<br>
+                            • <strong>Status:</strong> Current versions only (exclude superseded)<br>
+                            • <strong>Trade:</strong> "Electrical" (if builder has tagged disciplines)<br><br>
+                            
+                            <strong>Example Use Case:</strong><br>
+                            "I need all electrical drawings updated in the last 14 days"<br>
+                            • Filter: Type = Drawings<br>
+                            • Filter: Trade = Electrical<br>
+                            • Filter: Modified = Last 14 days<br>
+                            • Result: 8 documents (instead of 247 total)<br>
+                            • Download selected → Only what you need
+                        </div>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-title"><span class="step-number">10</span>Sync to Local Folder (Advanced)</div>
+                        <div class="step-detail">
+                            For desktop app users:<br><br>
+                            
+                            Click <span class="click-path">Sync Settings</span>:<br>
+                            • Enable "Auto-sync to local folder"<br>
+                            • Choose folder on computer: C:\Tenders\[Project Name]\<br>
+                            • Select sync frequency:<br>
+                            &nbsp;&nbsp;→ Real-time (updates within minutes)<br>
+                            &nbsp;&nbsp;→ Hourly<br>
+                            &nbsp;&nbsp;→ Daily (overnight at 2 AM)<br>
+                            • Check "Only sync current versions"<br>
+                            • Click <span class="click-path">Start Sync</span><br><br>
+                            
+                            <strong>Benefits:</strong><br>
+                            • Always have latest files locally<br>
+                            • Work offline if needed<br>
+                            • Integration with desktop software (AutoCAD, etc.)<br>
+                            • Automatic backup
+                        </div>
+                    </div>
+                    
+                    <h2>Search & Organization Tools</h2>
+                    
+                    <div class="step">
+                        <div class="step-title"><span class="step-number">11</span>Advanced Document Search</div>
+                        <div class="step-detail">
+                            Use search bar (top of document panel):<br><br>
+                            
+                            <strong>Search by filename:</strong><br>
+                            • "electrical" → Finds all docs with "electrical" in name<br><br>
+                            
+                            <strong>Search by content (PDFs):</strong><br>
+                            • System OCRs all PDFs automatically<br>
+                            • Search: "switchboard location" → Finds specs mentioning it<br>
+                            • Search: "fire-rated cable" → Highlights in documents<br><br>
+                            
+                            <strong>Search by metadata:</strong><br>
+                            • Uploaded by: Builder name<br>
+                            • Date range: 01/01/2026 to 31/01/2026<br>
+                            • Document size: >10MB (find large drawing sets)<br><br>
+                            
+                            <strong>Operators:</strong><br>
+                            • AND: "electrical AND Level 2"<br>
+                            • OR: "specifications OR schedule"<br>
+                            • NOT: "drawings NOT superseded"
+                        </div>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-title"><span class="step-number">12</span>Tag and Annotate Documents</div>
+                        <div class="step-detail">
+                            Click on document → <span class="click-path">Add Tags</span>:<br><br>
+                            
+                            Create custom tags:<br>
+                            • 🔴 "CRITICAL" - Must review before pricing<br>
+                            • 🟡 "CLARIFY" - Question for builder<br>
+                            • 🟢 "REVIEWED" - Already incorporated in estimate<br>
+                            • 🔵 "SUBBIE-QUOTE" - Send to subcontractor<br><br>
+                            
+                            Add private notes (only your team sees):<br>
+                            • "This spec requires Australian-made switchboards only"<br>
+                            • "Conflict between drawing and spec - see RFI #7"<br>
+                            • "Pricing based on Page 12, Section 3.4.2"<br><br>
+                            
+                            Filter by tags:<br>
+                            • Show all "CLARIFY" docs → Send RFI to builder<br>
+                            • Show all "REVIEWED" docs → Checklist for completeness
+                        </div>
+                    </div>
+                    
+                    <h2>Collaboration Features</h2>
+                    
+                    <div class="step">
+                        <div class="step-title"><span class="step-number">13</span>Share Documents with Team</div>
+                        <div class="step-detail">
+                            Select document(s) → Click <span class="click-path">Share</span>:<br><br>
+                            
+                            <strong>Internal Sharing (your company):</strong><br>
+                            • Enter team member email<br>
+                            • Add message: "John, can you price the HVAC from these specs?"<br>
+                            • They receive link with direct access<br>
+                            • No need to download/email large files<br><br>
+                            
+                            <strong>External Sharing (subcontractors/suppliers):</strong><br>
+                            • Select relevant docs (e.g., HVAC drawings + specs)<br>
+                            • Click <span class="click-path">Generate Share Link</span><br>
+                            • Set expiry: 7 days (after tender close)<br>
+                            • Copy link and email to subcontractor<br>
+                            • They can view/download without login<br>
+                            • Track who accessed and when
+                        </div>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-title"><span class="step-number">14</span>Comment Threads on Documents</div>
+                        <div class="step-detail">
+                            Open document → Click <span class="click-path">Comments</span> tab:<br><br>
+                            
+                            Start conversation:<br>
+                            • You: "Does this spec require IP65 or IP67 rating?"<br>
+                            • @Manager: "Check addendum 2 - revised to IP67"<br>
+                            • You: "Thanks, updating estimate +$800"<br><br>
+                            
+                            <strong>Features:</strong><br>
+                            • @mention team members (they get notified)<br>
+                            • Attach screenshots or reference other docs<br>
+                            • Mark thread as "Resolved" when clarified<br>
+                            • History preserved for audit trail<br><br>
+                            
+                            <strong>Benefit:</strong> All discussion lives with the document, not buried in email chains
+                        </div>
+                    </div>
+                    
+                    <h2>Complete Document Workflow</h2>
+                    
+                    <div class="workflow-stage">
+                        <h3>📋 Professional Document Management Process</h3>
+                        
+                        <strong>Day 1 - Tender Release:</strong><br>
+                        • Receive tender invitation email<br>
+                        • Click link to Estimate One platform<br>
+                        • Review auto-organized document structure<br>
+                        • Click "Download All Documents"<br>
+                        • Create local project folder with same structure<br>
+                        • Enable addendum notifications (email + SMS)<br>
+                        Time: 15 min<br><br>
+                        
+                        <strong>Days 2-7 - Initial Review:</strong><br>
+                        • Review all specs and drawings<br>
+                        • Tag critical documents<br>
+                        • Add notes on questions/conflicts<br>
+                        • Prepare RFIs for builder<br>
+                        • Share relevant docs with subcontractors for quotes<br>
+                        Time: 2-4 hours depending on complexity<br><br>
+                        
+                        <strong>Ongoing - Addendum Management:</strong><br>
+                        • Check addendum log daily (9 AM)<br>
+                        • Review any new uploads<br>
+                        • Run version comparison on updated drawings<br>
+                        • Assess impact on estimate<br>
+                        • Update quantity takeoff if needed<br>
+                        • Mark addendums as reviewed<br>
+                        Time: 10-20 min/day<br><br>
+                        
+                        <strong>Final Day - Pre-Submission:</strong><br>
+                        • 2 hours before deadline: Final addendum check<br>
+                        • Confirm all documents reviewed (check tags)<br>
+                        • Download final package for records<br>
+                        • Include addendum summary in bid submission<br>
+                        • Archive locally with estimate and bid<br>
+                        Time: 30 min
+                    </div>
+                    
+                    <div class="warning">
+                        <div class="warning-title">⚠️ Document Management Pitfalls</div>
+                        <div class="tip-content">
+                            • <strong>Working from outdated docs:</strong> Always check "Last Modified" before starting work<br>
+                            • <strong>Missing addendums:</strong> Enable notifications - don't rely on checking manually<br>
+                            • <strong>Poor file organization:</strong> Use tags and folders - don't just search every time<br>
+                            • <strong>Not documenting basis:</strong> Note which doc version you used for pricing<br>
+                            • <strong>Ignoring superseded docs:</strong> They might contain important historical context<br>
+                            • <strong>Sharing wrong version:</strong> Always share "Current" version with team/subbies<br>
+                            • <strong>No local backup:</strong> Platform is reliable, but download critical docs locally too<br>
+                            • <strong>Assuming completeness:</strong> Tender packages may have missing documents - ask if unsure
+                        </div>
+                    </div>
+                    
+                    <div class="tip">
+                        <div class="tip-title">💡 Power User Tips</div>
+                        <div class="tip-content">
+                            <strong>1. Create a Document Checklist Template</strong><br>
+                            For every tender, verify you have:<br>
+                            ✓ All drawings (architectural, structural, MEP)<br>
+                            ✓ Full specifications<br>
+                            ✓ Bill of quantities (if provided)<br>
+                            ✓ Tender conditions & contract<br>
+                            ✓ Site information (soil reports, surveys)<br>
+                            ✓ Insurance requirements<br>
+                            ✓ Safety/environmental plans<br><br>
+                            
+                            <strong>2. Use Browser Bookmarks</strong><br>
+                            Bookmark direct link to each tender's document page<br>
+                            • Faster access than navigating from dashboard<br>
+                            • Organize bookmarks by tender close date<br><br>
+                            
+                            <strong>3. Set Up Mobile Alerts</strong><br>
+                            Install mobile app for push notifications<br>
+                            • Get addendum alerts even when away from desk<br>
+                            • Quick document preview on phone<br>
+                            • Forward to team immediately<br><br>
+                            
+                            <strong>4. Build a Personal Knowledge Base</strong><br>
+                            After each project, save:<br>
+                            • Common spec sections for your trade<br>
+                            • Standard detail drawings<br>
+                            • Typical requirement checklists<br>
+                            • Reference these in future tenders to spot differences
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+    
+    <script>
+        function showMainTab(tabName) {
+            // Hide all tab contents
+            const contents = document.querySelectorAll('.tab-content');
+            contents.forEach(content => content.classList.remove('active'));
+            
+            // Remove active class from all tabs
+            const tabs = document.querySelectorAll('.tab');
+            tabs.forEach(tab => tab.classList.remove('active'));
+            
+            // Show selected tab content
+            document.getElementById(tabName).classList.add('active');
+            
+            // Add active class to clicked tab
+            event.target.classList.add('active');
+        }
+        
+        function toggleAccordion(header) {
+            const item = header.parentElement;
+            const wasActive = item.classList.contains('active');
+            
+            // Close all accordion items
+            document.querySelectorAll('.accordion-item').forEach(i => {
+                i.classList.remove('active');
+            });
+            
+            // Open clicked item if it wasn't already active
+            if (!wasActive) {
+                item.classList.add('active');
+            }
+        }
+    </script>
+</body>
+</html>
